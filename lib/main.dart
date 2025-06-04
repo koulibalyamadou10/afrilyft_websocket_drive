@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
       } finally {
         setState(() {
           _isUpdatingPosition = false;
-             = false;
+          _isGettingBookings = false;
           _isConfirmTrip = false;
         });
       }
@@ -178,13 +178,14 @@ class _MyHomePageState extends State<MyHomePage> {
     };
   }
 
-  Map<String, dynamic> buildDriverTripBookingById(String trip_uuid, String booking_uuid) {
+  Map<String, dynamic> buildDriverTripBookingConfirmation(String trip_uuid, String booking_uuid) {
     return {
       'type': 'driver-confirm-trip-booking',
       'trip_uuid': trip_uuid,
       'booking_uuid': booking_uuid
     };
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -255,7 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 24,
                     child: CircularProgressIndicator(strokeWidth: 2)
                   )
-                : const Icon(Icons.list_alt),
+                : const Icon(Icons.confirmation_num),
               label: Text(_isConfirmTrip ? 'Loading...' : 'Confirm Trip Booking'),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(16),
