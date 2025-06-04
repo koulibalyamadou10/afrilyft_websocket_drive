@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _showSuccessMessage = false;
     });
 
-    final wsUrl = Uri.parse('ws://192.168.1.133:8000/ride/681aa90e-949c-8006-991e-5bc1d41cf598/$user_uuid/');
+    final wsUrl = Uri.parse('ws://44.247.168.30:8010/ride/681aa90e-949c-8006-991e-5bc1d41cf598/$user_uuid/');
     
     try {
       _channel = WebSocketChannel.connect(wsUrl);
